@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$background-primary: #d5d5d5;
+
+.icon.icon-loading {
+  background: transparent center center no-repeat;
+  background-image: url('assets/loading-300.png');
+  background-size: 64px 64px !important;
+  width: 64px !important;
+  height: 64px !important;
+  mask: none !important;
+}
+
+.mdc-floating-label {
+  color: $background-primary !important;
+}
+
+/* Change the border focused color */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline__trailing {
+  border-color:  $background-primary !important;
+}
+
+/* Change the border hover color */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__trailing {
+  border-color:  $background-primary !important;
+}
+
+.mat-toolbar .mat-mdc-button-base.mat-unthemed {
+  background:  $background-primary;
+  border-radius: 2px !important;
+  margin-right: 0.5rem;
+  border: 1px solid  black;
+  opacity: 0.2;
+
+  &:hover {
+    border-radius: 2px !important;
+    opacity: 0.5;
+  }
+}
+
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  padding: 0 !important;
+}

@@ -1,0 +1,24 @@
+<div
+  class="full-loading-wrapper"
+  [class.active]="active">
+  <div
+    class="mask">
+    <ng-content></ng-content>
+  </div>
+  <div
+    class="sub-mask"
+    [class.active]="active">
+  </div>
+  <div>
+    <div class="icon icon-loading icon-full-loading"></div>
+  </div>
+</div>
+
+<svg id="blurFullLoadingFilterWrapper">
+  <defs>
+    <filter id="blurFullLoadingFilter">
+      <feGaussianBlur result="blur" stdDeviation="10">
+      </feGaussianBlur>
+    </filter>
+  </defs>
+</svg>

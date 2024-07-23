@@ -1,0 +1,81 @@
+:host(.padTopfixmenu) {
+  display: block;
+}
+
+.full-loading-wrapper, .mask {
+  background: transparent;
+  position: relative;
+
+  .mask {
+      z-index: 999;
+      background: transparent;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+  }
+  .sub-mask {
+      display: none;
+
+      &.active {
+          z-index: 1000;
+          background: transparent;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100vh;
+          display: block;
+          position: absolute;
+      }
+  }
+  .icon-loading {
+      display: none;
+      width: 64px;
+      height: 64px;
+      z-index: 1001;
+      position: fixed;
+      animation: rotating .5s linear infinite;
+      top: calc(50vh - 64px);
+      left: calc(50% - 32px);
+  }
+
+  &.active {
+      display: block;
+
+      .icon-loading {
+          display: block;
+      }
+
+      .mask {
+          position: absolute;
+          filter: alpha(opacity=70);
+          filter: url(#blurFullLoadingFilter);
+          filter: blur(10px);
+          backdrop-filter: blur(10px);
+          height: 100vh; // force full height
+          overflow: hidden;
+      }
+  }
+  @keyframes rotating {
+      from {
+          transform: rotate(0deg);
+      }
+      to {
+          transform: rotate(360deg);
+      }
+  }
+}
+
+svg#blurFullLoadingFilterWrapper {
+  display: none;
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  z-index: -10;
+}
