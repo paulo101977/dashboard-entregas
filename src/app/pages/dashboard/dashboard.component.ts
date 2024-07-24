@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FullLoadingService } from 'src/app/components/full-loading/full-loading.service';
-import { AgrupamentoPorBairroEntregaModel, AgrupamentoPorNomeEntregaModel, DataModel, StatusEntregaEnum } from 'src/app/models';
-import { DataService } from 'src/app/services/data.service';
+import { FullLoadingService } from '../../components/full-loading/full-loading.service';
+import {
+  AgrupamentoPorBairroEntregaModel,
+  AgrupamentoPorNomeEntregaModel,
+  DataModel,
+  StatusEntregaEnum
+} from '../../models';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-dashboard',

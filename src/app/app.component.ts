@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map, switchMap } from 'rxjs';
-import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',

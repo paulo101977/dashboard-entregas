@@ -1,35 +1,34 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FullLoadingComponent } from './components/full-loading/full-loading.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        SharedModule,
+        NoopAnimationsModule,
       ],
       declarations: [
+        FullLoadingComponent,
         AppComponent
       ],
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('Deverá criar o app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'dashboard-entregas'`, () => {
+  it(`Deverá ter um título vazio`,() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('dashboard-entregas');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('dashboard-entregas app is running!');
+    expect(app.title).toEqual('');
   });
 });

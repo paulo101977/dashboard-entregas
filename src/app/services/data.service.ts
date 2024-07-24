@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
-import { FakeData } from 'src/mock/data';
+import { FakeData } from '../../mock/data';
 import { DataModel, StatusEntregaEnum } from '../models';
 
 @Injectable({
@@ -40,10 +40,10 @@ export class DataService {
   }
 
 
-  public loadData(): Observable<Array<DataModel>>{
+  public loadData(myDelay = 2000): Observable<Array<DataModel>>{
     // requisição fake com delay de 2 segundos
     return of<any>(FakeData)
-      .pipe(delay(2000));
+      .pipe(delay(myDelay));
   }
 
 }

@@ -1,16 +1,16 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { FullLoadingService } from 'src/app/components/full-loading/full-loading.service';
+import { FullLoadingService } from '../../components/full-loading/full-loading.service';
 import { ListagemEntregasModel } from 'src/app/models';
-import { DataService } from 'src/app/services/data.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-lista-entregas',
   templateUrl: './lista-entregas.component.html',
   styleUrls: ['./lista-entregas.component.scss']
 })
-export class ListaEntregasComponent implements OnInit {
+export class ListaEntregasComponent implements OnInit, AfterViewInit {
 
   public readonly colunas = ['id', 'documento', 'motorista', 'status_entrega'];
   public listaAndamentoEntregas: MatTableDataSource<ListagemEntregasModel> = <any>null;
@@ -21,6 +21,7 @@ export class ListaEntregasComponent implements OnInit {
     private loadingService: FullLoadingService,
     private dataService: DataService,
   ) { }
+
 
   ngOnInit() {
     this.loadingService.setState(true);
@@ -46,6 +47,17 @@ export class ListaEntregasComponent implements OnInit {
           return data.motorista.toLowerCase().includes(filter) || data.status_entrega.toLowerCase().includes(filter);
         };
     });
+  }
+
+  ngAfterViewInit(): void {
+    if(this.paginator) {
+      this.paginator._intl.itemsPerPageLabel = "Itens por página";
+      this.paginator._intl.firstPageLabel = "Primeira página";
+      this.paginator._intl.nextPageLabel = "Próxima página";
+      this.paginator._intl.previousPageLabel = "Página anterior";
+      this.paginator._intl.lastPageLabel = "Última página";
+    }
+
   }
 
   public aplicarFiltro(event: Event) {
